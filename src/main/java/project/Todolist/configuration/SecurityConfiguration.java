@@ -40,9 +40,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and();
-                //.authenticationProvider(authenticationProvider)
-                http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .and()
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception{

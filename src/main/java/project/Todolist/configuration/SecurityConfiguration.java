@@ -38,12 +38,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .and();
+                //.authenticationProvider(authenticationProvider)
+                http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth)throws Exception{

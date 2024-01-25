@@ -14,6 +14,6 @@ RUN mvn clean package -DskipTests
 
 # Production Stage
 FROM openjdk:8-jdk-slim
-COPY --from=build /app/target/Todo-list-0.0.1-SNAPSHOT.jar /app/Todo-list.jar
+COPY --from=build /target/Todo-list-0.0.1-SNAPSHOT.jar /Todo-list.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "Todo-list.jar"]

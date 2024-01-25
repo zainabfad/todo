@@ -14,7 +14,6 @@ import project.Todolist.service.UserProfileService;
 import javax.persistence.EntityNotFoundException;
 
 @RestController
-@Transactional
 @RequestMapping("/api/v1/profile")
 public class UserProfileController {
     @Autowired

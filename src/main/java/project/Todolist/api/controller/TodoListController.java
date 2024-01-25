@@ -20,7 +20,6 @@ import java.util.List;
 @RequestMapping( "/api/v1/list")
 @RestController
 @Slf4j
-@Transactional
 public class TodoListController {
     @Autowired
     private final TodoListService todoListService;

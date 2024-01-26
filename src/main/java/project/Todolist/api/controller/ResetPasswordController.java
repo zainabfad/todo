@@ -56,7 +56,7 @@ public ResponseEntity<ResetPasswordOtpResponse> generateOtp(@RequestParam String
     String otp = generateRandomOtp();
 
     LocalDateTime creationDateTime = LocalDateTime.now();
-    LocalDateTime expirationDateTime = creationDateTime.plus(5, ChronoUnit.MINUTES);
+    LocalDateTime expirationDateTime = creationDateTime.plus(10, ChronoUnit.MINUTES);
 
     resetPasswordService.saveOtp(user.getId(), email, otp, creationDateTime, expirationDateTime);
 
@@ -78,22 +78,6 @@ public ResponseEntity<ResetPasswordOtpResponse> generateOtp(@RequestParam String
         return String.valueOf(otp);
     }
 
-//    @PostMapping("/validate-otp")
-//    public ResponseEntity<?> validateOtp(@RequestParam String email, @RequestParam String otp) {
-//        try {
-//            if (resetPasswordService.validateOtp(email, otp)) {
-//
-//                return ResponseEntity.ok("OTP is valid. User can reset the password.");
-//            } else {
-//
-//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP.");
-//            }
-//        } catch (EntityNotFoundException e) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
-//        } catch (ExpiredOtpException e) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("OTP has expired.");
-//        }
-//    }
 @PostMapping("/validate-otp")
 public ResponseEntity<?> validateOtp(@RequestParam String email, @RequestParam String otp) {
     try {

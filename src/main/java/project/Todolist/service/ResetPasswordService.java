@@ -28,12 +28,6 @@ public class ResetPasswordService {
     private final ResetPasswordRepository resetPasswordRepository;
     @Autowired
     private final UserRepository userRepository;
-    @Autowired
-    private final UserService userService;
-
-    @Autowired
-    private final PasswordEncoder passwordEncoder;
-
 
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
@@ -59,27 +53,6 @@ public void saveOtp(Long userId, String email, String otp, LocalDateTime creatio
                 .orElseThrow(() -> new EntityNotFoundException("User not found with email: " + email));
     }
 
-
-//    public boolean validateOtp(String email, String otp) {
-//
-//        User user = userRepository.findByEmail(email)
-//                .orElseThrow(() -> new EntityNotFoundException("User not found"));
-//
-//        ResetPassword resetPasswordOtp = resetPasswordRepository.findByEmailAndOtp(email, otp)
-//
-//                .orElseThrow(() -> new ExpiredOtpException("Invalid OTP"));
-//        log.info("results {}", email);
-//
-//
-//        if (resetPasswordOtp.getExpirationDateTime().isBefore(LocalDateTime.now())) {
-//            throw new ExpiredOtpException("OTP has expired");
-//        }
-//
-//        resetPasswordOtp.setStatus(true);
-//       resetPasswordRepository.save(resetPasswordOtp);
-//        return true;
-//
-//    }
 public boolean validateOtp(String email, String otp) {
     User user = userRepository.findByEmail(email)
             .orElseThrow(() -> new EntityNotFoundException("User not found"));

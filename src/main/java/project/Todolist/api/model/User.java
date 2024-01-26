@@ -48,11 +48,6 @@ public class User implements UserDetails {
     private List<TodoList> todoLists;
 
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY)
-    @JsonManagedReference
-    private UserProfile userProfile;
-
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<ResetPassword> resetPasswords;
 

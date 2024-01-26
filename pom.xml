@@ -21,10 +21,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -115,17 +111,6 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.5.13</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>javax.persistence-api</artifactId>
-			<version>2.2</version> <!-- Choose the appropriate version -->
-		</dependency>
-
-		<!--		<dependency>-->
-<!--			<groupId>org.quartz-scheduler</groupId>-->
-<!--			<artifactId>quartz</artifactId>-->
-<!--			<version>2.3.2</version> &lt;!&ndash; Replace with the latest version &ndash;&gt;-->
-<!--		</dependency>-->
 	</dependencies>
 
 

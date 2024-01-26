@@ -24,8 +24,8 @@ public class ReminderJob  {
     private final ReminderEmailService reminderEmailService;
     private final TaskRepository taskRepository;
 
-    @Scheduled(cron = "0 0 9 * * ?")
-//@Scheduled(cron = "0 0/1 * 1/1 * ?")
+//    @Scheduled(cron = "0 0 9 * * ?")
+@Scheduled(cron = "0 0/1 * 1/1 * ?")
     public void execute() {
         log.info("Scheduled job started.");
 
